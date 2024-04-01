@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:sinbal/BottomBar/catalog.dart';
 import 'package:sinbal/BottomBar/favorites.dart';
 import 'package:sinbal/BottomBar/home.dart';
 import 'package:sinbal/BottomBar/profile.dart';
+import 'package:sinbal/bottomBar/cart.dart';
+import 'package:sinbal/models/product.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +17,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MultiProvider(
+        providers: [
+        ChangeNotifierProvider<ProductDataProvider>(
+        create: (context) => ProductDataProvider(),
+    ),
+    ],
+    child: MaterialApp(
+
       debugShowCheckedModeBanner: false,
       title: 'Sinbal',
       theme: ThemeData(
@@ -22,6 +32,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Sinbal'),
+    ),
     );
   }
 }
@@ -50,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
     List<Widget> _pages = <Widget>[
       Home(),
       Catalog(),
-      Card(),
+      Home(),
       Favorites(),
       Profile(),
     ];

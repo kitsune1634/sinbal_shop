@@ -1,3 +1,4 @@
+/*
 import 'dart:async';
 
 import 'package:sinbal/database/database.dart';
@@ -48,3 +49,102 @@ class DbProduct {
     _listProductStateController.close();
   }
 }
+*/
+
+
+
+
+
+
+/*
+
+  allProduct() {
+    return FutureBuilder<List<Product>>(
+      future: DBProvider.db.getAllProduct(),
+      builder: (BuildContext context, AsyncSnapshot<List<Product>> snapshot) {
+        if (snapshot.hasData) {
+          return Column(
+            children: [
+              Expanded(
+                child: ListView.builder(
+                  padding: const EdgeInsets.all(8),
+                  itemCount: snapshot.data?.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    Product item = snapshot.data![index];
+                    return Dismissible(
+                      key: UniqueKey(),
+                      onDismissed: (direction) {
+                        DBProvider.db.deleteProduct(item.id);
+                      },
+                      background: Container(color: Colors.black12),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.grey[45],
+                          border: Border.all(
+                            color: Colors.deepPurple,
+                            width: 1,
+                          ),
+                          borderRadius: const BorderRadius.all(Radius.circular(15)),
+                        ),
+                        padding:
+                        EdgeInsets.only(top: 20, bottom: 15, left: 10, right: 10),
+                        margin: EdgeInsets.only(bottom: 10.0),
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Flexible(
+                                  child: Text(
+                                    productShoes.name,
+                                    softWrap: true,
+                                    style: TextStyle(
+                                        fontSize: 17,
+                                        decoration: TextDecoration.underline
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Flexible(
+                                  child: Text(
+                                    productShoes.color,
+                                    softWrap: true,
+                                    style: TextStyle(
+                                      fontSize: 17,
+                                      // fontStyle: FontStyle.italic,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text(
+                                  productShoes.price.toString(),
+                                  style: TextStyle(fontSize: 15),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
+          );
+        }
+        return const Center(
+          child: CircularProgressIndicator(),
+        );
+      },
+    );
+  }
+}
+ */

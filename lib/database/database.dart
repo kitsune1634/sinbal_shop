@@ -1,3 +1,4 @@
+/*
 import 'package:path/path.dart';
 import 'package:sinbal/database/product.dart';
 import 'package:sqflite/sqflite.dart';
@@ -69,3 +70,4 @@ class DBProvider {
         where: "id = ?", whereArgs: [allProduct.id]);
   }
 }
+*/
